@@ -1,23 +1,65 @@
-# YEOM AI Lab
+# Yeom – Info Gathering Page Upgrade
 
-Purpose:
-This repository is for exploring how Groq AI could be integrated into YEOM.
+## 🎯 Sprint Goal
 
-Scope:
-- Set up a simple Groq AI working example
-- Explore whether Groq aligns with YEOM’s product direction
-- Build a small prototype or proof of concept
-- Document findings, tradeoffs, and recommendations
+Upgrade and refine the existing Info Gathering page (UI + interaction flow) while keeping all current functionality and fields intact.
 
-Constraints:
-- This is an experimental repo, not production code
-- Freedom to choose tools/frameworks as needed
-- Focus on clarity and learning, not polish
+This sprint focuses on frontend improvements only. No backend logic changes are required.
 
-Timeline:
-- Short-term contributor trial (2 weeks)
-- Async, part-time
+---
 
-Deliverables:
-- Working example (code)
-- Clear documentation of what was done, what worked, what didn’t, and next steps
+## 📌 Scope
+
+The page currently collects:
+
+- Username
+- Gender
+- Date of Birth
+- Fashion Preference
+- Profile Photo (if present)
+
+These fields must remain.
+
+---
+
+## 🛠 Your Role
+
+You are responsible for:
+
+- Improving layout structure
+- Refining spacing and alignment
+- Enhancing visual clarity
+- Improving input interaction flow
+- Making the page responsive
+- Cleaning up frontend logic if needed (without changing backend behavior)
+
+You are NOT responsible for:
+
+- Changing database structure
+- Modifying Firebase configuration
+- Changing core product logic
+- Adding new required fields
+
+---
+
+## ✅ Definition of Done
+
+The upgraded page should:
+
+- Look cleaner and more structured
+- Feel smoother in interaction
+- Maintain all existing functionality
+- Work locally without breaking current behavior
+
+---
+
+## 🔄 Workflow
+
+- Work autonomously within the defined scope
+- Share meaningful progress updates
+- Raise blockers early if any appear
+- Document key changes and decisions briefly
+
+---
+
+This is a focused sprint. Keep it simple, clean, and functional.
