@@ -1,55 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Profile Info</title>
-  <link rel="stylesheet" href="info.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Info Gathering</title>
+
+<link rel="stylesheet" href="info.css">
 </head>
 
 <body>
-  <div class="container">
-    <!-- Message for success/error -->
-    <div id="message" class="hidden"></div>
-    <h2>Complete Profile</h2>
-    <!-- Form Fields -->
-    <label>Username</label>
-    <input type="text" id="username" placeholder="Enter your username" />
-    <label>Select Gender</label>
-    <select id="gender">
-      <option value="">Select your gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Other">Other</option>
-    </select>
 
-    <label>Date of Birth</label>
-    <input type="date" id="dob" />
+<div class="container">
 
-    <label>Fashion Preference</label>
-    <select id="fashion">
-      <option value="">Select your style</option>
-      <option value="Streetwear">Streetwear</option>
-      <option value="Casual">Casual</option>
-      <option  value="Formal">Formal</option>
-      <option value="Vintage">Vintage</option>
-    </select>
+    <h1>Create Your Profile</h1>
+    <p class="subtitle">Tell us a little about yourself</p>
 
-    <!-- Submit -->
-    <button id="submit">Add Profile</button>
-  </div>
+    <!-- Profile Upload -->
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  
-  <script>
-    flatpickr("#dob", {
-      dateFormat: "Y-m-d",
-      maxDate: "today",
-      defaultDate: "2000-01-01"
-    });
-  </script>
+    <div class="profile-section">
 
-  <script type="module" src="info.js"></script>
+        <label class="avatar-wrapper">
+
+            <img id="profileImage"
+            src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+            alt="Profile Picture">
+
+            <div class="overlay">Upload</div>
+
+            <input type="file" id="fileInput" accept="image/*">
+
+        </label>
+
+        <p class="upload-text">Tap to upload profile photo</p>
+
+    </div>
+
+    <!-- Form -->
+
+    <form id="infoForm">
+
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter username">
+        </div>
+
+        <div class="input-group">
+            <label>Gender</label>
+            <select id="gender">
+                <option value="">Select gender</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob">
+        </div>
+
+        <div class="input-group">
+            <label>Fashion Preference</label>
+            <select id="fashion">
+                <option value="">Choose style</option>
+                <option>Casual</option>
+                <option>Streetwear</option>
+                <option>Minimal</option>
+                <option>Elegant</option>
+                <option>Sporty</option>
+            </select>
+        </div>
+
+        <button type="submit" class="continue-btn">Continue</button>
+
+    </form>
+
+</div>
+
+<script src="info.js"></script>
+
 </body>
 </html>
