@@ -44,6 +44,60 @@ margin-bottom:30px;
 
 
 /* Avatar */
+/* Default avatar placeholder */
+
+.avatar-placeholder{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:#e4e4e4;
+
+border-radius:50%;
+
+}
+
+/* Draw simple user icon using CSS */
+
+.avatar-placeholder::before{
+
+content:"";
+
+width:36px;
+height:36px;
+
+border-radius:50%;
+
+background:#9e9e9e;
+
+position:absolute;
+
+top:32px;
+
+}
+
+.avatar-placeholder::after{
+
+content:"";
+
+width:60px;
+height:32px;
+
+border-radius:30px 30px 0 0;
+
+background:#9e9e9e;
+
+position:absolute;
+
+bottom:28px;
+
+}
 
 .profile-section{
 text-align:center;
