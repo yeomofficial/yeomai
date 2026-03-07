@@ -3,77 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Info Gathering</title>
+<title>Create Profile</title>
 
 <link rel="stylesheet" href="info.css">
-</head>
 
+</head>
 <body>
 
 <div class="container">
 
-    <h1>Create Your Profile</h1>
-    <p class="subtitle">Tell us a little about yourself</p>
+<h1>Create Profile</h1>
+<p class="subtitle">Tell us about yourself</p>
 
-    <!-- Profile Upload -->
+<div class="profile-section">
 
-    <div class="profile-section">
+<div class="avatar-wrapper">
 
-        <label class="avatar-wrapper">
+<img id="profileImage">
 
-            <img id="profileImage"
-            src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-            alt="Profile Picture">
+<div class="overlay">
+Change
+</div>
 
-            <div class="overlay">Upload</div>
+</div>
 
-            <input type="file" id="fileInput" accept="image/*">
+<input type="file" id="fileInput" accept="image/*">
 
-        </label>
+<p class="upload-text">Upload profile picture</p>
 
-        <p class="upload-text">Tap to upload profile photo</p>
+</div>
 
-    </div>
 
-    <!-- Form -->
+<form id="infoForm">
 
-    <form id="infoForm">
+<div class="input-group">
+<input type="text" id="username" placeholder=" " required>
+<label>Username</label>
+</div>
 
-        <div class="input-group">
-            <label>Username</label>
-            <input type="text" id="username" placeholder="Enter username">
-        </div>
 
-        <div class="input-group">
-            <label>Gender</label>
-            <select id="gender">
-                <option value="">Select gender</option>
-                <option>Female</option>
-                <option>Male</option>
-                <option>Other</option>
-            </select>
-        </div>
+<div class="input-group">
+<select id="gender" required>
+<option value="" disabled selected></option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select>
+<label>Gender</label>
+</div>
 
-        <div class="input-group">
-            <label>Date of Birth</label>
-            <input type="date" id="dob">
-        </div>
 
-        <div class="input-group">
-            <label>Fashion Preference</label>
-            <select id="fashion">
-                <option value="">Choose style</option>
-                <option>Casual</option>
-                <option>Streetwear</option>
-                <option>Minimal</option>
-                <option>Elegant</option>
-                <option>Sporty</option>
-            </select>
-        </div>
+<div class="input-group">
+<input type="date" id="dob" required>
+<label>Date of Birth</label>
+</div>
 
-        <button type="submit" class="continue-btn">Continue</button>
 
-    </form>
+<div class="input-group">
+<select id="fashion" required>
+<option value="" disabled selected></option>
+<option value="streetwear">Streetwear</option>
+<option value="minimal">Minimal</option>
+<option value="vintage">Vintage</option>
+<option value="casual">Casual</option>
+</select>
+<label>Fashion Style</label>
+</div>
+
+
+<button type="submit" class="continue-btn">
+Continue
+</button>
+
+</form>
 
 </div>
 
