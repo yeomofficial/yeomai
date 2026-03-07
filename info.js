@@ -19,6 +19,8 @@ reader.onload = function(e){
 profileImage.src = e.target.result;
 profileImage.style.display = "block";
 
+document.querySelector(".avatar-placeholder").style.display = "none";
+
 };
 
 reader.readAsDataURL(file);
