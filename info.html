@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Create Profile</title>
 
 <link rel="stylesheet" href="info.css">
 
 </head>
+
 <body>
 
 <div class="container">
 
 <h1>Create Profile</h1>
 <p class="subtitle">Tell us about yourself</p>
+
 
 <div class="profile-section">
 
@@ -23,16 +27,7 @@
 
 <img id="profileImage">
 
-<div class="overlay">
-Change
-</div>
-
-
-<img id="profileImage">
-
-<div class="overlay">
-Change
-</div>
+<div class="overlay">Change</div>
 
 </div>
 
@@ -43,40 +38,41 @@ Change
 </div>
 
 
+
 <form id="infoForm">
 
 <div class="input-group">
-<input type="text" id="username" placeholder=" " required>
 <label>Username</label>
+<input type="text" id="username" required>
 </div>
 
 
 <div class="input-group">
+<label>Gender</label>
 <select id="gender" required>
-<option value="" disabled selected></option>
+<option value="" disabled selected>Select Gender</option>
 <option value="male">Male</option>
 <option value="female">Female</option>
 <option value="other">Other</option>
 </select>
-<label>Gender</label>
 </div>
 
 
 <div class="input-group">
-<input type="date" id="dob" required>
 <label>Date of Birth</label>
+<input type="date" id="dob" required>
 </div>
 
 
 <div class="input-group">
+<label>Fashion Style</label>
 <select id="fashion" required>
-<option value="" disabled selected></option>
+<option value="" disabled selected>Select Style</option>
 <option value="streetwear">Streetwear</option>
 <option value="minimal">Minimal</option>
 <option value="vintage">Vintage</option>
 <option value="casual">Casual</option>
 </select>
-<label>Fashion Style</label>
 </div>
 
 
