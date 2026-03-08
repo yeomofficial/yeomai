@@ -30,15 +30,15 @@ reader.readAsDataURL(file);
 });
 
 
-/* DOB logic */
+/* DOB cannot be today */
 
 const dobInput = document.getElementById("dob");
 
 let today = new Date();
+
 today.setDate(today.getDate() - 1);
 
 dobInput.max = today.toISOString().split("T")[0];
-
 
 
 /* Submit */
