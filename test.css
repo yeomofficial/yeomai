@@ -70,23 +70,24 @@ body {
 /* Suggested Section */
 .suggested-section {
   background: #f5f5f5;
-  padding: 20px 0 10px;
+  padding: 16px 0 8px;
 }
 
 .content {
-  padding: 0 20px;
+  padding: 0 16px; 
 }
 
 h1 {
-  font-size: 38px;
-  margin-bottom: 0;
-  font-weight: 700;
+  font-size: 26px;            /* Smaller heading */
+  margin-bottom: 4px;
+  font-weight: 600;
 }
 
 .subtitle {
   color: gray;
-  margin-top: 8px;
-  font-size: 16px;
+  margin-top: 2px;
+  font-size: 14px;            /* Smaller subtitle */
+  margin-bottom: 16px;
 }
 
 .category-img {
@@ -143,12 +144,12 @@ h1 {
 }
 
 .card {
-  min-width: 130px;
+  min-width: 118px;           /* Smaller cards */
   background: white;
-  border-radius: 24px;
-  padding: 16px;
+  border-radius: 20px;
+  padding: 14px 12px;         /* Reduced padding inside card */
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.07);
   flex: 0 0 auto;
 }
 
