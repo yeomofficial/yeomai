@@ -25,13 +25,37 @@ body {
   height: 24px;
 }
 
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 10px 14px;
+  gap: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  flex: 1;
+}
+
+.search-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
 #searchInput {
   flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #1a1a1a;
+  padding: 0;
+}
+
+#searchInput::placeholder {
+  color: #bbb;
+  font-weight: 400;
 }
 
 /* Suggested Section */
