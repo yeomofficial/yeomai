@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    margin: 0;
+}
+
+/* Container */
+
+.auth-container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Header image */
+
+.header-img {
+    width: 58%;
+    max-width: 260px;
+    min-width: 150px;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+    margin-bottom: 38px;
+}
+
+/* Welcome text */
+
+.welcome-text {
+    font-size: 26px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+/* Inputs */
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    margin: 4px 0;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus {
+    outline: none;
+    border-color: #111;
+}
+
+/* Error input state (soft, not aggressive) */
+
+input.error {
+    border: 1px solid #c63636;
+}
+
+input.error:focus {
+    border-color: #c63636;
+}
+
+/* Password wrapper */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 45px;
+}
+
+/* Password toggle */
+
+.toggle-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 22px;
+    opacity: 0.6;
+    user-select: none;
+    transition: opacity 0.2s ease;
+}
+
+.toggle-eye:hover {
+    opacity: 1;
+}
+
+/* Inline error messages (quiet + premium) */
+
+.error-message {
+    color: #c63636;
+    font-size: 13px;
+    line-height: 1.4;
+
+    margin-top: 2px;
+    margin-bottom: 0;
+    min-height: 0;
+
+    opacity: 0;
+    transform: translateY(-2px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+    transform: translateY(0);
+    margin-bottom: 8px;
+}
+
+/* Terms */
+
+.terms {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.terms input[type="checkbox"] {
+    margin-bottom: 8px;
+}
+
+.terms a {
+    color: #0066ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Button */
+
+button {
+    width: 100%;
+    background-color: #111111;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Button loading (no jump, no flicker) */
+
+.auth-button {
+    position: relative;
+}
+
+.btn-loading {
+    display: none;
+}
+
+.auth-button.loading .btn-text {
+    visibility: hidden;
+}
+
+.auth-button.loading .btn-loading {
+    display: inline;
+}
+
+/* Auth link */
+
+.auth-link {
+    margin-top: 28px;
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #0066ff;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Forgot password */
+
+.forgot-password {
+    text-align: left;
+    margin-top:20px;
+    margin-bottom: 36px;
+}
+
+.forgot-password a {
+    color: #0066ff;
+    text-decoration: none;
+}
