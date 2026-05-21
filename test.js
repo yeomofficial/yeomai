@@ -102,7 +102,7 @@ async function loadSuggestedUsers() {
 
   const allUsers = snapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(u => u.id !== currentUser?.uid); // exclude self
+    .filter(u => u.id !== currentUser?.uid);
 
   const suggested = fisherYatesShuffle(allUsers).slice(0, 5);
   renderSuggested(suggested);
@@ -111,7 +111,6 @@ async function loadSuggestedUsers() {
 function renderSuggested(users) {
   const container = document.getElementById("suggestedCards");
 
-  // Keep the invite card, replace the rest
   const inviteCard = container.querySelector(".card:first-child");
   container.innerHTML = "";
   container.appendChild(inviteCard);
@@ -121,10 +120,16 @@ function renderSuggested(users) {
       ? user.username.slice(0, 2).toUpperCase()
       : "??";
 
+    // Show profile photo if exists, fallback to initials
+    const avatarHTML = user.profile
+      ? `<img src="${user.profile}" alt="${user.username}"
+            style="width:75px; height:75px; border-radius:50%; object-fit:cover; margin:auto; display:block;" />`
+      : `<div class="profile-circle">${initials}</div>`;
+
     const card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
-      <div class="profile-circle">${initials}</div>
+      ${avatarHTML}
       <h2>${user.username}</h2>
       <p>suggested</p>
       <button class="spot-btn" onclick="viewProfile('${user.id}')">Spot</button>
@@ -133,26 +138,4 @@ function renderSuggested(users) {
   });
 }
 
-// Load suggested once auth is ready
-onAuthStateChanged(auth, (user) => {
-  if (user) loadSuggestedUsers();
-});
-
-// === Spot Button Toggle Logic ===
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('spot-btn')) {
-    const btn = e.target;
-    
-    if (btn.innerText === "Spot") {
-      btn.innerText = "Spotted";
-      btn.style.background = "white";
-      btn.style.color = "black";
-      btn.style.border = "2px solid black";
-    } else {
-      btn.innerText = "Spot";
-      btn.style.background = "black";
-      btn.style.color = "white";
-      btn.style.border = "none";
-    }
-  }
-});
+// Load suggested once
