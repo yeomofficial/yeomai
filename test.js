@@ -19,14 +19,28 @@ const auth = getAuth(app);
 const searchInput = document.getElementById("searchInput");
 const resultsList = document.getElementById("resultsList");
 
-// ─── SEARCH BAR LOGIC (unchanged) ───────────────────────────────
+// ─── SEARCH BAR LOGIC ───────────────────────────────────────────
+
+// Create overlay dynamically
+const overlay = document.createElement("div");
+overlay.classList.add("search-overlay");
+document.body.appendChild(overlay);
+
+const searchResults = document.querySelector(".search-results");
+
 searchInput.addEventListener("input", async () => {
   const searchTerm = searchInput.value.trim().toLowerCase();
 
   if (searchTerm === "") {
     resultsList.innerHTML = "";
+    searchResults.classList.remove("active");
+    overlay.classList.remove("active");
     return;
   }
+
+  // Show overlay + floating results panel
+  searchResults.classList.add("active");
+  overlay.classList.add("active");
 
   try {
     const usersRef = collection(db, "users");
@@ -58,6 +72,15 @@ searchInput.addEventListener("input", async () => {
     console.error("Error fetching users:", error);
     resultsList.innerHTML = "<p>Error loading results. Please try again.</p>";
   }
+});
+
+// Dismiss overlay on background tap
+overlay.addEventListener("click", () => {
+  searchInput.value = "";
+  resultsList.innerHTML = "";
+  searchResults.classList.remove("active");
+  overlay.classList.remove("active");
+  searchInput.blur();
 });
 
 window.viewProfile = (userId) => {
