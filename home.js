@@ -208,25 +208,19 @@ async function loadPosts() {
 document.addEventListener("click", async (e) => {
   const likeBtn = e.target.closest(".like-btn");
   const saveBtn = e.target.closest(".save-btn");
+
   if (!likeBtn && !saveBtn) return;
 
-  // Gate here instead of at page load
   if (!CURRENT_UID) {
     showAuthSheet();
     return;
   }
-  document.addEventListener("click", async (e) => {
-  const likeBtn = e.target.closest(".like-btn");
-  const saveBtn = e.target.closest(".save-btn");
-
-  if (!likeBtn && !saveBtn) return;
 
   const post = e.target.closest(".post");
   const postId = post.dataset.postId;
   const postRef = doc(db, "posts", postId);
   const userRef = doc(db, "userInteractions", CURRENT_UID);
 
-  //  LIKE
   if (likeBtn) {
     const countSpan = likeBtn.querySelector("span");
 
@@ -234,22 +228,17 @@ document.addEventListener("click", async (e) => {
       delete USER_INTERACTIONS.likedPosts[postId];
       likeBtn.classList.remove("active");
       countSpan.textContent--;
-
       await updateDoc(postRef, { likeCount: increment(-1) });
     } else {
       USER_INTERACTIONS.likedPosts[postId] = true;
       likeBtn.classList.add("active");
       countSpan.textContent++;
-
       await updateDoc(postRef, { likeCount: increment(1) });
     }
 
-    await updateDoc(userRef, {
-      likedPosts: USER_INTERACTIONS.likedPosts
-    });
+    await updateDoc(userRef, { likedPosts: USER_INTERACTIONS.likedPosts });
   }
 
-  //  SAVE
   if (saveBtn) {
     if (USER_INTERACTIONS.savedPosts[postId]) {
       delete USER_INTERACTIONS.savedPosts[postId];
@@ -259,14 +248,9 @@ document.addEventListener("click", async (e) => {
       saveBtn.classList.add("active");
     }
 
-    await updateDoc(userRef, {
-      savedPosts: USER_INTERACTIONS.savedPosts
-    });
+    await updateDoc(userRef, { savedPosts: USER_INTERACTIONS.savedPosts });
   }
 });
-});
-
-
 
 // -------------------- BLOCK IMAGE CONTEXT MENU --------------------
 document.addEventListener("contextmenu", (e) => {
@@ -365,7 +349,7 @@ function closeAllSheets() {
   sheetBackdrop.classList.add("hidden");
   hideSheet(postActionsSheet);
   hideSheet(reportSheet);
-  hideSheet(authSheet); // add this
+  hideSheet(authSheet);
   activePost = null;
   activePostOwner = null;
 }
