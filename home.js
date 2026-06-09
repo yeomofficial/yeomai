@@ -82,27 +82,20 @@ function closeAllSheets() {
 
 // -------------------- AUTH --------------------
 onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    window.location.replace("index.html");
-    return;
+  if (user) {
+    CURRENT_UID = user.uid;
+    const ref = doc(db, "userInteractions", CURRENT_UID);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) {
+      await setDoc(ref, { likedPosts: {}, savedPosts: {} });
+      USER_INTERACTIONS = { likedPosts: {}, savedPosts: {} };
+    } else {
+      USER_INTERACTIONS = snap.data();
+    }
   }
-
-  CURRENT_UID = user.uid;
-
-  // Load interaction memory ONCE
-  const ref = doc(db, "userInteractions", CURRENT_UID);
-  const snap = await getDoc(ref);
-
-  if (!snap.exists()) {
-    await setDoc(ref, { likedPosts: {}, savedPosts: {} });
-    USER_INTERACTIONS = { likedPosts: {}, savedPosts: {} };
-  } else {
-    USER_INTERACTIONS = snap.data();
-  }
-
+  // Always load posts — auth state doesn't gate the feed
   loadPosts();
 });
-
 // -------------------- POST UI --------------------
 function createPost({ postId, username, imageUrl, ownerId, likeCount = 0 }) {
   const post = document.createElement("article");
@@ -215,6 +208,16 @@ async function loadPosts() {
 document.addEventListener("click", async (e) => {
   const likeBtn = e.target.closest(".like-btn");
   const saveBtn = e.target.closest(".save-btn");
+  if (!likeBtn && !saveBtn) return;
+
+  // Gate here instead of at page load
+  if (!CURRENT_UID) {
+    showAuthSheet();
+    return;
+  }
+  document.addEventListener("click", async (e) => {
+  const likeBtn = e.target.closest(".like-btn");
+  const saveBtn = e.target.closest(".save-btn");
 
   if (!likeBtn && !saveBtn) return;
 
@@ -261,6 +264,9 @@ document.addEventListener("click", async (e) => {
     });
   }
 });
+});
+
+
 
 // -------------------- BLOCK IMAGE CONTEXT MENU --------------------
 document.addEventListener("contextmenu", (e) => {
