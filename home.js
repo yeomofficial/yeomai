@@ -349,5 +349,23 @@ function showToast(message) {
   }, 2500);
 }
 
-
+// -------------------- BOTTOM SHEET --------------------
         
+const authSheet = document.getElementById("authSheet");
+const authSheetCancel = document.getElementById("authSheetCancel");
+
+function showAuthSheet() {
+  showSheet(authSheet);
+}
+
+authSheetCancel.addEventListener("click", closeAllSheets);
+
+// Also close authSheet in closeAllSheets():
+function closeAllSheets() {
+  sheetBackdrop.classList.add("hidden");
+  hideSheet(postActionsSheet);
+  hideSheet(reportSheet);
+  hideSheet(authSheet); // add this
+  activePost = null;
+  activePostOwner = null;
+}
