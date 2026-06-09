@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* ---------- DESIGN TOKENS ---------- */
+:root {
+  --bg: #f5f5f5;
+  --card-bg: #ffffff;
+
+  --text-primary: #111;
+  --text-secondary: #666;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- BASE ---------- */
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg);
+  padding-top: 60px;
+  padding-bottom: 80px; 
+}
+
+/* ---------- HEADER ---------- */
+.app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: var(--shadow-soft);
+  z-index: 1000;
+}
+
+.header-img {
+  height: 28px;
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ---------- FEED ---------- */
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 12px;
+}
+
+/* ---------- POST CARD ---------- */
+.post {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 12px;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- POST HEADER ---------- */
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.username {
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 400;
+  transform: translateY(-1px);
+  color: var(--text-primary);
+  line-height: 2;       
+}
+
+/* ---------- POST MENU (3 DOTS) ---------- */
+.post-menu {
+  background: none;
+  border: none;
+  padding: 8px;                
+  width: 40px;                 
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.post-menu-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  opacity: 0.7;
+}
+
+.post-menu:active .post-menu-icon {
+  opacity: 1;
+}
+
+/* ---------- IMAGE ---------- */
+.post-img-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.post-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.post-img-container {
+  position: relative;
+}
+
+.post-img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.img-shield {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* ---------- ACTIONS ---------- */
+.actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-btn,
+.save-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.like-btn span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.heart-img,
+.bookmark-img {
+  width: 32px;
+  height: 32px;
+}
+
+.like-btn,
+.save-btn {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+/* Like active */
+.like-btn.active {
+  color: #e63946; /* red */
+}
+
+/* Save active */
+.save-btn.active {
+  color: var(--text-primary);
+}
+
+/* SVG behavior */
+.like-btn svg,
+.save-btn svg {
+  stroke: currentColor;
+  fill: none;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* Filled states */
+.like-btn.active svg {
+  fill: currentColor;
+}
+
+.save-btn.active svg {
+  fill: currentColor;
+}
+
+/* Micro interaction */
+.like-btn:active,
+.save-btn:active {
+  transform: scale(0.92);
+}
+
+/* ---------- BOTTOM NAV ---------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  background-color: #fff;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-nav img {
+  width: 26px;
+  height: 26px;
+}
+
+
+/* ---------- BOTTOM SHEET ---------- */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 12px 16px 20px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(100%);
+  transition: transform 0.28s ease;
+  z-index: 2100;
+}
+
+.bottom-sheet.show {
+  transform: translateY(0);
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 4px;
+  margin: 6px auto 16px;
+}
+
+.sheet-action {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sheet-action + .sheet-action {
+  border-top: 1px solid #eee;
+}
+
+.sheet-action.danger {
+  color: #d64545;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------- BOTTOM SHEET STATES ---------- */
+#sheetActions,
+#sheetReportReasons {
+  display: flex;
+  flex-direction: column;
+}
+
+#sheetReportReasons {
+  margin-top: 6px;
+}
+
+/* ---------- TOAST ---------- */
+.toast-hidden {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9990;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast-show {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+
+  pointer-events: none;
+  opacity: 1;
+  z-index: 3000;
+}
+
+
+  
