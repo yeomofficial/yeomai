@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YEOM — Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+
+    <header class="topbar">
+      <img src="yeom_logo.png" alt="YEOM" class="logo">
+    </header>
+
+    <section class="profile">
+      <div class="avatar avatar-main">SH</div>
+
+      <h1>Sofia Henawi</h1>
+      <p class="handle">@username · Level Name</p>
+
+      <button class="primary-btn" id="editProfile">Edit Profile</button>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>20</strong>
+          <span>followers</span>
+        </div>
+        <div class="stat">
+          <strong>5 days</strong>
+          <span>streak</span>
+        </div>
+        <div class="stat">
+          <strong>4</strong>
+          <span>badges</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="level-card">
+      <p class="eyebrow">CURRENT LEVEL</p>
+      <h2>Level 4 · Level Name</h2>
+
+      <div class="level-meta">
+        <span>1,200 XP</span>
+        <span>100 to Level 5</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="friend-scroll" aria-label="Friends">
+      <article class="friend-card invite-card">
+        <div class="invite-icon">+</div>
+        <h3>Invite Friends</h3>
+        <p>Build your circle</p>
+      </article>
+
+      <article class="friend-card">
+        <div class="avatar avatar-friend">RK</div>
+        <h3>Roy King</h3>
+        <p>8 mutuals</p>
+        <button class="spot-btn">Spot</button>
+      </article>
+
+      <article class="friend-card">
+        <div class="avatar avatar-friend">JM</div>
+        <h3>Jane Miller</h3>
+        <p>5 mutuals</p>
+        <button class="spot-btn">Spot</button>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
